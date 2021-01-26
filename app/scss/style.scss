@@ -1,0 +1,295 @@
+$font-weight: bold;
+$color-primary:white;
+$color-secondary:black;
+$color-tertiary:grey;
+
+@mixin flex_space-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin top_menu{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+
+    a{   
+        color: $color-tertiary;
+        text-decoration: none;
+        font-weight: $font-weight;
+    }
+}
+
+@mixin img{
+    width: 100%;
+    height: 100%;
+}
+
+@mixin icon{
+    width: 35px;
+    height: 35px;
+        img{
+        @include img;
+    }
+}
+
+body{
+    background-color: darkslategrey;
+    margin: 0;
+    padding: 0;
+}
+
+.main{   
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: $color-primary;
+    margin: 100px;
+}
+
+header{
+        padding: 15px 90px 35px;
+        height: 25%;
+        @include flex_space-between;
+        flex-direction: column;
+        
+        .header__top{
+            @include flex_space-between;
+            flex-direction: row;
+            
+
+            .left{
+                @include top_menu;
+                justify-content: flex-start; 
+                
+                a{
+                    margin-right: 40px
+                }
+            }
+                
+            .right{
+                @include top_menu;
+                justify-content: flex-end; 
+
+                a{
+                    margin-left: 40px;
+                }
+            }       
+        }
+
+        .header__ricerca{
+            @include flex_space-between;
+            flex-direction: row;      
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            .header__ricerca__logo{
+                width: 100px;
+                height: 100px;
+            
+                img{
+                    @include img;
+                }
+            }
+
+            .header__ricerca__input{
+                width: 450px;
+
+                input{
+                    width: 450px;
+                    height: 38px;
+                    padding: 0 28px;
+                    /*background: white url(lente.jpg) no-repeat scroll 7px 7px; */
+                }
+            }
+                           
+            .header__ricerca__info{
+                text-align: center;
+            
+                p{
+                    margin: 0px;
+                    font-weight: $font-weight;
+                }
+            }
+            
+            .header__ricerca__icon{
+                display: flex;
+            
+                #icon1{
+                    @include icon;
+                }
+            
+                #icon2{
+                    @include icon;
+                }
+            }
+        }    
+        .header__bottom{
+            @include flex_space-between;
+            flex-direction: row;   
+            a{    
+                color:$color-secondary;
+                text-decoration: none;
+                font-weight: $font-weight;
+            }
+        }
+}
+
+.animation{
+    display: flex;
+    height: 70%;
+
+    .animation__testo{
+        background-image:linear-gradient( to right, rgb(172, 168, 168),$color-primary);
+        width: 60%;
+        display: flex;
+    
+        .animation__testo__paragraph{
+            width: 40%;
+            padding-top: 30px;
+            padding-left: 60px;
+            text-align: initial;
+        
+            h1{
+                color: $color-secondary;
+                font-size: 40px;
+            }
+            
+             h2{
+                color: $color-tertiary;
+                font-size: 20px;
+            }
+            
+             button{
+                width: 100px;
+                height: 40px;
+                border: 0px;
+            }
+        }
+        
+        .animation__testo__immagine{
+            width: 300px;
+            height: 300px;
+            align-self: center;
+        
+            img{
+                @include img;
+                border-radius: 400px;
+            }   
+        }
+    }
+    
+    .animation__img{
+        width: 40%;
+    
+        img{
+            @include img;
+        }
+    }
+}
+
+@media screen and (max-width: 1040px){
+    
+    header{
+        font-size: 15px;
+        .header__ricerca{
+            .header__ricerca__input{
+                width: 250px;
+    
+                input{
+                    width: 250px;
+                }
+            }
+        }        
+    } 
+
+    .animation{
+        .animation__testo{
+            .animation__testo__paragraph{
+                
+                h1{
+                    font-size: 30px;
+                }               
+                h2{
+                font-size: 15px;
+                }
+            }
+            
+            .animation__testo__immagine{
+                width: 200px;
+                height: 200px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px){
+   
+    header{
+        font-size: 13px;
+        .header__ricerca{
+            .header__ricerca__input{
+                width: 200px;
+    
+                input{
+                    width: 200px;
+                }
+            }
+        }        
+    } 
+
+    .animation{
+        .animation__testo{
+            width: 100%;
+        }
+
+        .animation__img{
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 830px){
+
+    header{   
+        
+        .header__top{
+            flex-direction: column;
+                
+            .right{
+                justify-content: flex-start;
+        
+                a{
+                    margin-right: 40px;
+                    margin-left: 0px;
+                }
+            }       
+        }
+
+        .header__ricerca{
+            
+            .header__ricerca__logo{
+                width: 50px;
+                height: 50px;
+            }
+
+            .header__ricerca__input{
+                width: 150px;
+        
+                input{
+                    width: 150px;
+                 }
+            }
+                           
+            .header__ricerca__info{
+                font-size: 10px;          
+            }
+            
+            .header__ricerca__icon{
+                flex-direction: column;
+            }
+        }    
+    }
+}
+
