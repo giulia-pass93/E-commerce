@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prova</title>
+</head>
+<body>
+    <h1>PROVA</h1>
+
+    <ul id="mylist">
+        
+    </ul>
+
+    <ul id="myOrto">
+
+    </ul>
+
+</body>
+
+<script>
+    const listaDiFrutta=["anguria", "melone", "pera", "mela"];
+    const listaDiOrtaggi=["cavolo", "insalata", "broccolo", "pomodoro"];
+    
+    function creaLista(lista, nomeLista){
+        for(i=0;i<lista.length;i++){
+            aggiungiElemento(lista[i], nomeLista);
+        }
+    }
+
+    function aggiungiElemento(elementoDaAggiungere, nomeLista) {
+        const mylist= document.getElementById(nomeLista);
+        const elemento= document.createElement("li");
+        elemento.textContent=elementoDaAggiungere;
+        mylist.appendChild(elemento);
+    }
+
+    creaLista(listaDiFrutta,"mylist");
+    creaLista(listaDiOrtaggi, "myOrto") ;
+
+</script>
+</html>
