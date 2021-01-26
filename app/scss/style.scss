@@ -193,9 +193,8 @@ header{
     
     header{
         font-size: 15px;
-        .header__ricerca{
-            .header__ricerca__input{
-                width: 250px;
+        &__ricerca{
+            &__input{
     
                 input{
                     width: 250px;
@@ -205,8 +204,8 @@ header{
     } 
 
     .animation{
-        .animation__testo{
-            .animation__testo__paragraph{
+        &__testo{
+            &__paragraph{
                 
                 h1{
                     font-size: 30px;
@@ -216,7 +215,7 @@ header{
                 }
             }
             
-            .animation__testo__immagine{
+            &__immagine{
                 width: 200px;
                 height: 200px;
             }
@@ -228,10 +227,8 @@ header{
    
     header{
         font-size: 13px;
-        .header__ricerca{
-            .header__ricerca__input{
-                width: 200px;
-    
+        &__ricerca{
+            &__input{  
                 input{
                     width: 200px;
                 }
@@ -240,11 +237,11 @@ header{
     } 
 
     .animation{
-        .animation__testo{
+        &__testo{
             width: 100%;
         }
 
-        .animation__img{
+        &__img{
             display: none;
         }
     }
@@ -254,7 +251,7 @@ header{
 
     header{   
         
-        .header__top{
+        &__top{
             flex-direction: column;
                 
             .right{
@@ -267,14 +264,14 @@ header{
             }       
         }
 
-        .header__ricerca{
+        &__ricerca{
             
-            .header__ricerca__logo{
+            &__logo{
                 width: 50px;
                 height: 50px;
             }
 
-            .header__ricerca__input{
+            &__input{
                 width: 150px;
         
                 input{
@@ -282,11 +279,11 @@ header{
                  }
             }
                            
-            .header__ricerca__info{
+            &__info{
                 font-size: 10px;          
             }
             
-            .header__ricerca__icon{
+            &__icon{
                 flex-direction: column;
             }
         }    
