@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clone</title>
+  
+    <link rel="stylesheet" href="app/css/style.css">
+    <script src="./js/header-generator.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+    <div class="main">
+        <header>
+
+        </header>
+
+        <div id="animation" class="animation">
+
+        </div>
+    </div>
+
+    <script>
+        headerGenerator();
+
+        const mylist= document.getElementById("header__ricerca__info");
+        const cell =document.getElementById("cell");
+
+        const numero= document.createElement("p");
+        numero.textContent="3389431342";
+
+        mylist.insertBefore(numero,cell);
+    </script>
+    
+</body>
+</html>
