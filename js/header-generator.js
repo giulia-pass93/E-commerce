@@ -1,156 +1,152 @@
-function headerGenerator(){
+function bodyGenerator(){
     
     const header = document.getElementsByTagName("header")[0];
     const animation = document.getElementsByClassName("animation")[0];
 
     //....HEADER__TOP....
-    const NewHeaderTop= document.createElement("div");
-    NewHeaderTop.classList.add("header__top");
+    const NewHeaderTop= createElementAddClass("header__top", "div");
     header.appendChild(NewHeaderTop);
+
+    const menuTopLeft=[{ name:"privacy",
+                         url:"www."},
+                       { name:"cookies",
+                         url:"www."},
+                       { name:"politica",
+                         url:"www."},
+                       { name:"azienda",
+                         url:"www."},
+                       { name:"sedi",
+                         url:"www."}];
     
-    const left= document.createElement("div");
-    left.classList.add("left");
+    const menuTopRight=[{ name:"Lavora con noi",
+                          url:"www."},
+                        { name:"stampa",
+                          url:"www."}];
+ 
+    menuGenerator(menuTopLeft, "left", NewHeaderTop);
+    menuGenerator(menuTopRight, "right", NewHeaderTop);
 
-    const el1=document.createElement("a");
-    const el2=document.createElement("a");
-    const el3=document.createElement("a");
-    const el4=document.createElement("a");
-    const el5=document.createElement("a");
-    el1.innerHTML="List";
-    el2.innerHTML="List";
-    el3.innerHTML="List";
-    el4.innerHTML="List";
-    el5.innerHTML="List";
-    left.appendChild(el1);
-    left.appendChild(el2);
-    left.appendChild(el3);
-    left.appendChild(el4);
-    left.appendChild(el5);
-
-    const right= document.createElement("div");
-    right.classList.add("right");
-
-    const el6=document.createElement("a");
-    const el7=document.createElement("a");
-    el6.innerHTML="List";
-    el7.innerHTML="List";
-    right.appendChild(el6);
-    right.appendChild(el7);
-
-    NewHeaderTop.appendChild(left);
-    NewHeaderTop.appendChild(right);
-    
     //....HEADER__RICERCA....
-    const headerRicerca=document.createElement("div");
-    headerRicerca.classList.add("header__ricerca");
-
-    const ricercaLogo=document.createElement("div");
-    ricercaLogo.classList.add("header__ricerca__logo");
-    const logo=document.createElement("img");
-    logo.src="assets/logo.jpg";
-    ricercaLogo.appendChild(logo);
+    const headerRicerca=createElementAddClass("header__ricerca", "div");
+    
+    //Logo
+    const ricercaLogo=createElementAddClass("header__ricerca__logo", "div");
+    inserisciImmagine("assets/logo.jpg", ricercaLogo);
     headerRicerca.appendChild(ricercaLogo);
-
-    const ricercaInput=document.createElement("div");
-    ricercaInput.classList.add("header__ricerca__input");
-    const input=document.createElement("input");
-    input.classList.add("header__ricerca__input--active");
+    
+    //Input
+    const ricercaInput=createElementAddClass("header__ricerca__input", "div");  
+    const input=createElementAddClass("header__ricerca__input--active", "input");
+   
     input.type="search";
     input.placeholder="Cerca sul sito";
     ricercaInput.appendChild(input);
     headerRicerca.appendChild(ricercaInput);
 
-    const ricercaInfo=document.createElement("div");
-    ricercaInfo.classList.add("header__ricerca__info");
-    ricercaInfo.id="header__ricerca__info";
-    const frase=document.createElement("p");
-    frase.id="cell";
-    frase.innerHTML="mio cellulare";
-    frase.style.color="grey";
-    ricercaInfo.appendChild(frase);
+    //Info
+    const ricercaInfo=createElementAddClass("header__ricerca__info", "div");
+    
+    generateInfo("3389431342", "black");
+    generateInfo("mio cellulare", "grey");
+
     headerRicerca.appendChild(ricercaInfo);
-     
-    const ricercaIcon=document.createElement("div");
-    ricercaIcon.classList.add("header__ricerca__icon"); 
+  
+    //Icone
+    const ricercaIcon=createElementAddClass("header__ricerca__icon", "div");   
     
-    const icon1=document.createElement("div");
-    icon1.id="icon1";
-    const ic1= document.createElement("a");
-    const img1=document.createElement("img");
-    img1.src="assets/cuore.jpg";
-    ic1.appendChild(img1);
-    icon1.appendChild(ic1);
-    ricercaIcon.appendChild(icon1);  
+    generateIcons("icon1", "assets/cuore.jpg");
+    generateIcons("icon2", "assets/shop.jpg");
     
-    const icon2=document.createElement("div");
-    icon2.id="icon2";
-    const ic2= document.createElement("a");
-    const img2=document.createElement("img");
-    img2.src="assets/shop.jpg";
-    ic2.appendChild(img2);
-    icon2.appendChild(ic2);
-    ricercaIcon.appendChild(icon2);
     headerRicerca.appendChild(ricercaIcon);
 
     header.appendChild(headerRicerca);
     
     //....HEADER__BOTTOM....
-    const headerBottom=document.createElement("div");
-    headerBottom.classList.add("header__bottom");
-    
-    const menuObject=[
-        {name:"home", url:"www.google.com"},
-        {name:"contatti", url:"www.facebook.com"}
-    ];
+    const menuBottom=[{name:"home", url:"www.google.com"},
+                      {name:"contatti", url:"www.facebook.com"},
+                      {name:"chi siamo", url:"www.facebook.com"},
+                      {name:"dove siamo", url:"www.facebook.com"},
+                      {name:"storia", url:"www.facebook.com"},
+                      {name:"news", url:"www.facebook.com"},
+                      {name:"forza Juve", url:"www.facebook.com"},
+                      {name:"chat", url:"www.facebook.com"}];
 
-    
-    menuObject.forEach(currentItem => generateMenuItem(currentItem));
-
-    function generateMenuItem(pippo){
-        const item = document.createElement("a");
-        item.innerHTML=pippo.name;
-        headerBottom.appendChild(item);
-        item.href=pippo.url;
-    }
-
-    header.appendChild(headerBottom);
-
+    menuGenerator(menuBottom, "header__bottom", header);
+ 
     //....ANIMATION__TESTO....
-    const animationTesto=document.createElement("div");
-    animationTesto.classList.add("animation__testo");
+    const animationTesto=createElementAddClass("animation__testo", "div");
 
-    const paragrafo=document.createElement("div");
-    paragrafo.classList.add("animation__testo__paragraph");
+    //Testo
+    const paragrafo=createElementAddClass("animation__testo__paragraph", "div");
     
-    const h1=document.createElement("h1");
-    h1.innerHTML="PRODOTTI";
-    paragrafo.appendChild(h1);
-    const h2 = document.createElement("h2");
-    h2.innerHTML="Descrizione del prodotto da acquistare";
-    paragrafo.appendChild(h2);
-    const button=document.createElement("button");
-    button.type="button";
-    button.innerHTML="Shop Now";
-    button.style.fontWeight="bold";
-    paragrafo.appendChild(button);
-    
+    generateTesto("h1", "PRODOTTI", "none", "none");
+    generateTesto("h2", "Descrizione del prodotto da acquistare", "none", "none");
+    generateTesto("button", "Shop Now", "button", "bold");
+     
     animationTesto.appendChild(paragrafo);
 
-    const cerchio=document.createElement("div");
-    cerchio.classList.add("animation__testo__immagine");
-    const cerchioImg=document.createElement("img");
-    cerchioImg.src="assets/mare.jpg";
-    cerchio.appendChild(cerchioImg);
+    //Immagine 
+    const cerchio=createElementAddClass("animation__testo__immagine", "div"); 
+    inserisciImmagine("assets/mare.jpg", cerchio);  
     animationTesto.appendChild(cerchio);
 
     animation.appendChild(animationTesto);
     
     //....ANIMATION__IMMAGINE....
-    const animationImmagine = document.createElement("div");
-    animationImmagine.classList.add("animation__img");
-    const animationImg=document.createElement("img");
-    animationImg.src="assets/img.jpg";
-    animationImmagine.appendChild(animationImg);
+    const animationImmagine = createElementAddClass("animation__img", "div");
+    inserisciImmagine("assets/img.jpg", animationImmagine);
+    animation.appendChild(animationImmagine); 
     
-    animation.appendChild(animationImmagine);   
+    //....FUNZIONI....
+    
+    function createElementAddClass(className, tag){
+      const node = document.createElement(tag);
+      node.classList.add(className);
+      return node;
+    }
+
+    function inserisciImmagine(link, node){
+      const img=document.createElement("img");
+      img.src=link;
+      node.appendChild(img);
+    }
+
+    function generateIcons(id, src){
+      const divIcon = document.createElement("div");
+      divIcon.id=id;
+      const aIcon = document.createElement("a");
+
+      inserisciImmagine(src, aIcon);
+
+      divIcon.appendChild(aIcon);
+      ricercaIcon.appendChild(divIcon);
+    }
+
+    function generateInfo(informazione, colore){
+      const info=document.createElement("p");
+      info.innerHTML=informazione;
+      info.style.color=colore;
+      ricercaInfo.appendChild(info);
+    }
+
+    function generateTesto(tag, testo, type, style){
+      const text=document.createElement(tag);
+      text.innerHTML=testo;
+      text.type=type;
+      text.style.fontWeight=style;
+      paragrafo.appendChild(text);
+    }
+
+    function menuGenerator(array, classToAdd, parent){
+      const node = createElementAddClass(classToAdd, "div");
+      array.forEach(currentItem => generateMenu(currentItem, node));
+      parent.appendChild(node);
+    }
+
+    function generateMenu(menuItem, node){
+        const item = document.createElement("a");
+        item.innerHTML=menuItem.name;
+        item.href=menuItem.url;
+        node.appendChild(item);
+    }
 }
